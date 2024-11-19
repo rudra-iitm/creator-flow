@@ -193,7 +193,7 @@ export function UploadProject() {
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-lg font-semibold mb-4">About CreatorCollab</h3>
+              <h3 className="text-lg font-semibold mb-4">About CreatorFlow</h3>
               <p className="text-sm text-gray-300">Empowering creators and editors to produce amazing content together.</p>
             </div>
             <div>

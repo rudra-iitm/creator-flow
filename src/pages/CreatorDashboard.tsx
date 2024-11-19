@@ -200,7 +200,7 @@ export function CreatorDashboard() {
         <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="text-lg font-semibold mb-4">About CreatorCollab</h3>
+              <h3 className="text-lg font-semibold mb-4">About CreatorFlow</h3>
               <p className="text-sm text-gray-300">Empowering creators and editors to produce amazing content together.</p>
             </div>
             <div>
@@ -244,7 +244,7 @@ export function CreatorDashboard() {
             </div>
           </div>
           <div className="mt-8 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between items-center">
-            <p className="text-sm text-gray-300">&copy; 2023 CreatorCollab. All rights reserved.</p>
+            <p className="text-sm text-gray-300">&copy; 2024 CreatorFlow. All rights reserved.</p>
             <div className="mt-4 md:mt-0">
               <Button variant="outline" size="sm" className="text-black border-white hover:bg-white hover:text-gray-800">
                 Subscribe to Our Newsletter

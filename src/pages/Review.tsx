@@ -51,6 +51,8 @@ export function Review() {
       navigate('/');
   }
 
+  const [isLoading, setIsLoading] = useState(true);
+
   return (
     <div className="min-h-screen flex flex-col bg-gradient-to-b from-gray-100 to-gray-200">
       <header className="bg-white shadow">
@@ -93,59 +95,110 @@ export function Review() {
                   <TabsTrigger value="compare">Before/After</TabsTrigger>
                 </TabsList>
                 <TabsContent value="preview">
-                    <div className="aspect-video bg-black rounded-lg overflow-hidden">
+                    <div className="aspect-video bg-black rounded-lg overflow-hidden relative">
+                        {/* Show loading spinner */}
+                        {isLoading && (
+                            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                                <div className="loader">Loading...</div>
+                            </div>
+                        )}
+                        
                         <video
-                        src={previewVideo}
-                        className="w-full h-full object-cover hover:cursor-pointer"
-                        loop
-                        onMouseEnter={(e) => {
-                            (e.target as HTMLVideoElement).muted = false; // Unmute the video
-                            (e.target as HTMLVideoElement).play(); // Play the video
-                        }}
-                        onMouseLeave={(e) => {
-                            (e.target as HTMLVideoElement).pause(); // Pause the video
-                            (e.target as HTMLVideoElement).muted = true; // Mute the video when not hovering
-                        }}
+                            src={previewVideo}
+                            className="w-full h-full object-cover hover:cursor-pointer"
+                            loop
+                            onMouseEnter={(e) => {
+                                const videoElement = e.target as HTMLVideoElement;
+                                videoElement.muted = false; // Unmute the video
+                                
+                                // Only play if not already playing
+                                if (videoElement.paused) {
+                                    videoElement.play().catch((error) => {
+                                        console.error("Error playing the video:", error);
+                                    });
+                                }
+                            }}
+                            onMouseLeave={(e) => {
+                                const videoElement = e.target as HTMLVideoElement;
+                                videoElement.pause(); // Pause the video
+                                videoElement.muted = true; // Mute the video when not hovering
+                            }}
+                            onCanPlay={() => setIsLoading(false)} // Hide loading when video is ready to play
+                            onWaiting={() => setIsLoading(true)} // Show loading when video is buffering
                         >
-                        Your browser does not support the video tag.
+                            Your browser does not support the video tag.
                         </video>
                     </div>
                 </TabsContent>
 
                 <TabsContent value="compare">
                   <div className="grid grid-cols-2 gap-4">
-                  <div className="aspect-video bg-black rounded-lg overflow-hidden">
+                  <div className="aspect-video bg-black rounded-lg overflow-hidden relative">
+                        {/* Show loading spinner */}
+                        {isLoading && (
+                            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                                <div className="loader">Loading...</div>
+                            </div>
+                        )}
+                        
                         <video
-                        src={previewVideo}
-                        className="w-full h-full object-cover hover:cursor-pointer"
-                        loop
-                        onMouseEnter={(e) => {
-                            (e.target as HTMLVideoElement).muted = false; // Unmute the video
-                            (e.target as HTMLVideoElement).play(); // Play the video
-                        }}
-                        onMouseLeave={(e) => {
-                            (e.target as HTMLVideoElement).pause(); // Pause the video
-                            (e.target as HTMLVideoElement).muted = true; // Mute the video when not hovering
-                        }}
+                            src={previewVideo}
+                            className="w-full h-full object-cover hover:cursor-pointer"
+                            loop
+                            onMouseEnter={(e) => {
+                                const videoElement = e.target as HTMLVideoElement;
+                                videoElement.muted = false; // Unmute the video
+                                
+                                // Only play if not already playing
+                                if (videoElement.paused) {
+                                    videoElement.play().catch((error) => {
+                                        console.error("Error playing the video:", error);
+                                    });
+                                }
+                            }}
+                            onMouseLeave={(e) => {
+                                const videoElement = e.target as HTMLVideoElement;
+                                videoElement.pause(); // Pause the video
+                                videoElement.muted = true; // Mute the video when not hovering
+                            }}
+                            onCanPlay={() => setIsLoading(false)} // Hide loading when video is ready to play
+                            onWaiting={() => setIsLoading(true)} // Show loading when video is buffering
                         >
-                        Your browser does not support the video tag.
+                            Your browser does not support the video tag.
                         </video>
                     </div>
-                    <div className="aspect-video bg-black rounded-lg overflow-hidden">
+                    <div className="aspect-video bg-black rounded-lg overflow-hidden relative">
+                        {/* Show loading spinner */}
+                        {isLoading && (
+                            <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50">
+                                <div className="loader">Loading...</div>
+                            </div>
+                        )}
+                        
                         <video
-                        src={previewVideo}
-                        className="w-full h-full object-cover hover:cursor-pointer"
-                        loop
-                        onMouseEnter={(e) => {
-                            (e.target as HTMLVideoElement).muted = false; // Unmute the video
-                            (e.target as HTMLVideoElement).play(); // Play the video
-                        }}
-                        onMouseLeave={(e) => {
-                            (e.target as HTMLVideoElement).pause(); // Pause the video
-                            (e.target as HTMLVideoElement).muted = true; // Mute the video when not hovering
-                        }}
+                            src={previewVideo}
+                            className="w-full h-full object-cover hover:cursor-pointer"
+                            loop
+                            onMouseEnter={(e) => {
+                                const videoElement = e.target as HTMLVideoElement;
+                                videoElement.muted = false; // Unmute the video
+                                
+                                // Only play if not already playing
+                                if (videoElement.paused) {
+                                    videoElement.play().catch((error) => {
+                                        console.error("Error playing the video:", error);
+                                    });
+                                }
+                            }}
+                            onMouseLeave={(e) => {
+                                const videoElement = e.target as HTMLVideoElement;
+                                videoElement.pause(); // Pause the video
+                                videoElement.muted = true; // Mute the video when not hovering
+                            }}
+                            onCanPlay={() => setIsLoading(false)} // Hide loading when video is ready to play
+                            onWaiting={() => setIsLoading(true)} // Show loading when video is buffering
                         >
-                        Your browser does not support the video tag.
+                            Your browser does not support the video tag.
                         </video>
                     </div>
                   </div>

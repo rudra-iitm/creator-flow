@@ -13,6 +13,7 @@ import techReview from '@/assets/tech-review.jpeg'
 import cooking from '@/assets/cooking.jpeg'
 import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@clerk/clerk-react";
 import { useNavigate } from "react-router-dom"
+import { FaSignInAlt, FaUserPlus } from 'react-icons/fa';
 
 function Logo() {
   return (
@@ -36,14 +37,36 @@ export function HomePage() {
             <h1 className="text-3xl font-bold text-gray-900">CreatorFlow</h1>
           </div>
           <SignedOut>
-          <nav>
-            <SignInButton>
-                <Button variant="ghost" className="mr-4">Log In</Button>
-            </SignInButton>
-            <SignUpButton>
-                <Button>Sign Up</Button>
-            </SignUpButton>
-          </nav>
+         <nav className="relative">
+            {/* Navigation buttons */}
+            <div className="lg:flex lg:space-x-4">
+                {/* Log In Button (with icon on mobile) */}
+                <SignInButton>
+                <Button variant="ghost" className="mr-4 hidden lg:inline-flex">
+                    Log In
+                </Button>
+                {/* Icon for Log In on mobile */}
+                </SignInButton>
+                <SignInButton>
+                <button className="lg:hidden px-4">
+                    <FaSignInAlt className="text-gray-700 w-6 h-6" />
+                </button>
+                </SignInButton>
+
+                {/* Sign Up Button (with icon on mobile) */}
+                <SignUpButton>
+                <Button className="hidden lg:inline-flex">
+                    Sign Up
+                </Button>
+                {/* Icon for Sign Up on mobile */}
+                </SignUpButton>
+                <SignUpButton>
+                <button className="lg:hidden">
+                    <FaUserPlus className="text-gray-700 w-6 h-6" />
+                </button>
+                </SignUpButton>
+            </div>
+            </nav>
           </SignedOut>
           <SignedIn>
           <nav>

@@ -107,7 +107,7 @@ export function Editors() {
       <h1 className="text-3xl font-bold mb-8 text-center">Our Expert Video Editors</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {editors.map((editor) => (
-          <Card key={editor.id} className="flex flex-col h-full">
+          <Card key={editor.id} className="flex flex-col h-full hover:cursor-pointer" onClick={() => navigate('/editor')}>
             <CardHeader className="flex flex-row items-center gap-4">
               <Avatar className="w-12 h-12">
                 <AvatarImage src={editor.avatar} alt={editor.name} />

@@ -6,6 +6,7 @@ import { Review } from './pages/Review';
 import { CreatorDashboard } from './pages/CreatorDashboard';
 import { Editors } from './pages/Editors';
 import { Projects } from './pages/Projects';
+import { Editor } from './pages/Editor';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route path="/creator-dashboard" element={<CreatorDashboard />} />
         <Route path="/editors" element={<Editors />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/editor" element={<Editor />} />
       </Routes>
     </BrowserRouter>
   );

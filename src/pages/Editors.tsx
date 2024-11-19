@@ -81,7 +81,7 @@ export function Editors() {
                 <li><button onClick={() => navigate('/editors')} className="text-gray-600 hover:text-gray-900">Find Editors</button></li>
                 <UserButton />
               </ul>
-              <div className="md:hidden">
+              <div className="md:hidden flex justify-center gap-2">
                 <DropdownMenu>
                     <DropdownMenuTrigger>Menu</DropdownMenuTrigger>
                     <DropdownMenuContent>

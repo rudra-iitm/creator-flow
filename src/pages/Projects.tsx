@@ -9,6 +9,7 @@ import eco from '@/assets/eco.jpeg'
 import ai from '@/assets/ai.jpeg'
 import music from '@/assets/music.jpeg'
 import journey from '@/assets/journey.jpeg'
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@radix-ui/react-dropdown-menu"
 
 type Project = {
   id: number
@@ -88,12 +89,23 @@ export function Projects() {
               <h1 className="ml-3 text-2xl font-bold text-gray-900">CreatorFlow</h1>
             </div>
             <nav>
-              <ul className="flex space-x-4">
+              <ul className="hidden md:inline-flex space-x-4">
                 <li><button onClick={() => navigate('/creator-dashboard')} className="text-gray-600 hover:text-gray-900">Dashboard</button></li>
                 <li><button onClick={() => navigate('/projects')} className="text-gray-600 hover:text-gray-900">My Projects</button></li>
                 <li><button onClick={() => navigate('/editors')} className="text-gray-600 hover:text-gray-900">Find Editors</button></li>
                 <UserButton />
               </ul>
+              <div className="md:hidden">
+                <DropdownMenu>
+                    <DropdownMenuTrigger>Menu</DropdownMenuTrigger>
+                    <DropdownMenuContent>
+                        <DropdownMenuItem><button onClick={() => navigate('/creator-dashboard')} className="text-gray-600 hover:text-gray-900">Dashboard</button></DropdownMenuItem>
+                        <DropdownMenuItem><button onClick={() => navigate('/projects')} className="text-gray-600 hover:text-gray-900">My Projects</button></DropdownMenuItem>
+                        <DropdownMenuItem><button onClick={() => navigate('/editors')} className="text-gray-600 hover:text-gray-900">Find Editors</button></DropdownMenuItem>
+                    </DropdownMenuContent>
+                </DropdownMenu>
+                <UserButton />
+            </div>
             </nav>
           </div>
         </div>
